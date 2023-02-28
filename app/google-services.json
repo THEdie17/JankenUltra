@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "530880882043",
+    "project_id": "junkerultra",
+    "storage_bucket": "junkerultra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530880882043:android:9d51b74dbed73c85a249de",
+        "android_client_info": {
+          "package_name": "com.example.jankenultra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530880882043-p1pd77nks1duvg510mg915hlibksqm9s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jankenultra",
+            "certificate_hash": "a1ec24d8af844a39cac32d09f0cc1b990a283940"
+          }
+        },
+        {
+          "client_id": "530880882043-h1gf0f94fiiqm6602rpoavk5dn2unmsm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDOKY5OEOuTEUveQ5QF4ntb7mEyoiwcf4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530880882043-h1gf0f94fiiqm6602rpoavk5dn2unmsm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
