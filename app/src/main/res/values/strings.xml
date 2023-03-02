@@ -3,11 +3,15 @@
 
     <string name="LOGINBTN">Login</string>
     <string name="REGISTERBTN">Register</string>
-
+    <!--Register-->
     <string name="emailEt">E-mail</string>
     <string name="nameEt">Name</string>
     <string name="passEt">Password</string>
     <string name="dateTxt">Date</string>
     <string name="register">REGISTER</string>
+    <!--Login-->
+    <string name="emailLogin">E-mail</string>
+    <string name="passLogin">Password</string>
+    <string name="login">LOGIN</string>
 
 </resources>

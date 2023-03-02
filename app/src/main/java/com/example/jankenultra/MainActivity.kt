@@ -14,16 +14,20 @@ class MainActivity : AppCompatActivity() {
         val registerBtn = findViewById<Button>(R.id.REGISTERBTN)
         loginBtn.setOnClickListener{
             Toast.makeText(this, "Click Login Button",Toast.LENGTH_LONG).show()
+            jumpLogin()
         }
         registerBtn.setOnClickListener{
             Toast.makeText(this, "Click Register Button",Toast.LENGTH_LONG).show()
-            jumpStart()
+            jumpRegister()
         }
     }
 
-    private fun jumpStart()
-    {
+    private fun jumpRegister(){
         val intent= Intent(this, Register::class.java)
+        startActivity(intent)
+    }
+    private fun jumpLogin(){
+        val intent= Intent(this, Login::class.java)
         startActivity(intent)
     }
 }
