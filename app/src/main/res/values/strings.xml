@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">JankenUltra</string>
+
+    <string name="LOGINBTN">Login</string>
+    <string name="REGISTERBTN">Register</string>
+
+    <string name="emailEt">E-mail</string>
+    <string name="nameEt">Name</string>
+    <string name="passEt">Password</string>
+    <string name="dateTxt">Date</string>
+    <string name="register">REGISTER</string>
+
+</resources>
