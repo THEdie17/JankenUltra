@@ -12,40 +12,35 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.text.SimpleDateFormat
 import java.util.*
-
-
-
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        emailEt = findViewById<EditText>(R.id.emailEt)
-        passEt = findViewById<EditText>(R.id.passEt)
-        nameEt = findViewById<EditText>(R.id.nameEt)
-        dateTxt = findViewById<TextView>(R.id.dateTxt)
-        register = findViewById<Button>(R.id.register)
-        auth = FirebaseAuth.getInstance()
+        //Despleguem les variables que farem servir
+        lateinit var correoLogin : EditText
+        lateinit var passLogin : EditText
+        lateinit var BtnLogin : Button
 
-        val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat.getDateInstance() //or use getDateInstance()
-        val formattedDate = formatter.format(date)
-        //ara la mostrem al TextView
-        dateTxt.text = formattedDate
-
-        register.setOnClickListener {
+        BtnLogin.setOnClickListener(){
             //Abans de fer el registre validem les dades
-            val email: String = emailEt.text.toString()
-            val pass: String = passEt.text.toString()
+            var email:String = correoLogin.getText().toString()
+            var passw:String = passLogin.getText().toString()
             // validació del correu
             // si no es de tipus correu
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                emailEt.error = "Invalid Mail"
-            } else if (pass.length < 6) {
-                passEt.error = "Password less than 6 chars"
-            } else {
-                //registerPlayer(email, pass)
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                correoLogin.setError("Invalid Mail")
             }
-
+            else if (passw.length<6) {
+                passLogin.setError("Password less than 6 chars")
+            }else{
+                // aquí farem LOGIN al jugador
+                LogindeJugador(email, passw)
+            }
         }
+    }
+
+    private fun LogindeJugador(email: String, passw: String) {
+        auth.signInWithEmailAndPassword(email,passw)
+        finish()
     }
 }
