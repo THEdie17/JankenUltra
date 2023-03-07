@@ -3,6 +3,7 @@ package com.example.jankenultra
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -12,26 +13,32 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.text.SimpleDateFormat
 import java.util.*
+
+lateinit var correoLogin : EditText
+lateinit var passLogin : EditText
+lateinit var login : Button
+
+
 class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         //Despleguem les variables que farem servir
-        lateinit var correoLogin : EditText
-        lateinit var passLogin : EditText
-        lateinit var BtnLogin : Button
-
-        BtnLogin.setOnClickListener(){
+        correoLogin = findViewById<EditText>(R.id.emailLogin)
+        passLogin = findViewById<EditText>(R.id.passLogin)
+        auth = FirebaseAuth.getInstance()
+        login = findViewById<Button>(R.id.login)
+        login.setOnClickListener(){
             //Abans de fer el registre validem les dades
-            var email:String = correoLogin.getText().toString()
-            var passw:String = passLogin.getText().toString()
+            var email:String = correoLogin.text.toString()
+            var passw:String = passLogin.text.toString()
             // validació del correu
             // si no es de tipus correu
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                correoLogin.setError("Invalid Mail")
+                correoLogin.error = "Invalid Mail"
             }
             else if (passw.length<6) {
-                passLogin.setError("Password less than 6 chars")
+                passLogin.error = "Password less than 6 chars"
             }else{
                 // aquí farem LOGIN al jugador
                 LogindeJugador(email, passw)
@@ -41,6 +48,7 @@ class Login : AppCompatActivity() {
 
     private fun LogindeJugador(email: String, passw: String) {
         auth.signInWithEmailAndPassword(email,passw)
+        Log.d("Buenas Tardes", "Connected")
         finish()
     }
 }
