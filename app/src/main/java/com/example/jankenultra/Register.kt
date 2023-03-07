@@ -13,15 +13,16 @@ import com.google.firebase.auth.FirebaseUser
 import java.text.SimpleDateFormat
 import java.util.*
 
-lateinit var emailEt: EditText
-lateinit var passEt: EditText
-lateinit var nameEt: EditText
-lateinit var dateTxt: TextView
-lateinit var register: Button
-lateinit var auth: FirebaseAuth
 
 
 class Register : AppCompatActivity() {
+
+    lateinit var emailEt: EditText
+    lateinit var passEt: EditText
+    lateinit var nameEt: EditText
+    lateinit var dateTxt: TextView
+    lateinit var register: Button
+    lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)

@@ -14,12 +14,14 @@ import com.google.firebase.auth.FirebaseUser
 import java.text.SimpleDateFormat
 import java.util.*
 
-lateinit var correoLogin : EditText
-lateinit var passLogin : EditText
-lateinit var login : Button
+
 
 
 class Login : AppCompatActivity() {
+    lateinit var correoLogin : EditText
+    lateinit var passLogin : EditText
+    lateinit var login : Button
+    lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -28,18 +30,17 @@ class Login : AppCompatActivity() {
         passLogin = findViewById<EditText>(R.id.passLogin)
         auth = FirebaseAuth.getInstance()
         login = findViewById<Button>(R.id.login)
-        login.setOnClickListener(){
+        login.setOnClickListener() {
             //Abans de fer el registre validem les dades
-            var email:String = correoLogin.text.toString()
-            var passw:String = passLogin.text.toString()
+            var email: String = correoLogin.text.toString()
+            var passw: String = passLogin.text.toString()
             // validació del correu
             // si no es de tipus correu
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 correoLogin.error = "Invalid Mail"
-            }
-            else if (passw.length<6) {
+            } else if (passw.length < 6) {
                 passLogin.error = "Password less than 6 chars"
-            }else{
+            } else {
                 // aquí farem LOGIN al jugador
                 LogindeJugador(email, passw)
             }
@@ -47,8 +48,26 @@ class Login : AppCompatActivity() {
     }
 
     private fun LogindeJugador(email: String, passw: String) {
-        auth.signInWithEmailAndPassword(email,passw)
-        Log.d("Buenas Tardes", "Connected")
-        finish()
+        auth.signInWithEmailAndPassword(email, passw)
+            .addOnCompleteListener(this)
+            { task ->
+                if (task.isSuccessful) {
+                    val tx: String = "Benvingut " + email
+                    Toast.makeText(this, tx, Toast.LENGTH_LONG).show()
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    Toast.makeText(
+                        this, "ERROR Autentificació",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
     }
+
+    fun updateUI(user: FirebaseUser?) {
+        val intent = Intent(this, Menu::class.java)
+        startActivity(intent)
+    }
+
 }
