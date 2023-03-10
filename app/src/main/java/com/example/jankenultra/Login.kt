@@ -29,10 +29,6 @@ class Login : AppCompatActivity() {
         correoLogin = findViewById<EditText>(R.id.emailLogin)
         passLogin = findViewById<EditText>(R.id.passLogin)
         auth = FirebaseAuth.getInstance()
-        if (auth == null){
-            Log.i("LOGIN_OBJ","nulo")
-        }
-
         login = findViewById<Button>(R.id.login)
         login.setOnClickListener() {
             //Abans de fer el registre validem les dades
@@ -46,18 +42,12 @@ class Login : AppCompatActivity() {
                 passLogin.error = "Password less than 6 chars"
             } else {
                 // aquí farem LOGIN al jugador
-                Log.i("LOGIN_OBJ",email)
-                Log.i("LOGIN_OBJ",passw)
-                if (auth != null){
-                    Log.i("LOGIN_OBJ","nulo")
-                }
                 LogindeJugador(email, passw)
             }
         }
     }
 
     private fun LogindeJugador(email: String, passw: String) {
-        Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show()
         auth.signInWithEmailAndPassword(email, passw)
             .addOnCompleteListener(this)
             { task ->
@@ -66,13 +56,11 @@ class Login : AppCompatActivity() {
                     Toast.makeText(this, tx, Toast.LENGTH_LONG).show()
                     val user = auth.currentUser
                     updateUI(user)
-
                 } else {
                     Toast.makeText(
                         this, "ERROR Autentificació",
                         Toast.LENGTH_LONG
                     ).show()
-                    Log.i("LOGIN_OBJ","NO FUNCIONA")
                 }
             }
     }
@@ -80,7 +68,6 @@ class Login : AppCompatActivity() {
     fun updateUI(user: FirebaseUser?) {
         val intent = Intent(this, Menu::class.java)
         startActivity(intent)
-        finish()
     }
 
 }
