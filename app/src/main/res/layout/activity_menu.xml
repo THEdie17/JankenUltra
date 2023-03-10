@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#56385a"
+    tools:context=".Menu">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#56385A"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="30dp">
+        <!-- Text La meva puntuació -->
+        <TextView
+            android:id="@+id/miPuntuaciotxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/miPuntuaciotxt"
+            android:textSize="30sp" />
+        <!-- contingut puntuació -->
+        <TextView
+            android:id="@+id/puntuacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/puntuacio" />
+        <!-- Imatge alien -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/alienimagen"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/predator" />
+        <!-- uid -->
+        <TextView
+            android:id="@+id/uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/uid" />
+        <!-- correu -->
+        <TextView
+            android:id="@+id/correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/correo" />
+        <!-- nom -->
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/nom" />
+        <!-- BOTO DE jugar -->
+        <Button
+            android:id="@+id/jugarBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/jugarBtn" />
+        <!-- BOTO DE puntuacions -->
+        <Button
+            android:id="@+id/PuntuacionsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/PuntuacionsBtn" />
+        <!-- BOTO DE Credits -->
+        <Button
+            android:id="@+id/CreditsBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/CreditsBtn" />
+        <!-- BOTO DE Tancar sessió -->
+        <Button
+            android:id="@+id/tancarSessio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/tancarSessio" />
+    </LinearLayout>
+</ScrollView>

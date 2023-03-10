@@ -13,5 +13,14 @@
     <string name="emailLogin">E-mail</string>
     <string name="passLogin">Password</string>
     <string name="login">LOGIN</string>
-
+    <string name="tancarSessio">LOGOUT</string>
+    <string name="miPuntuaciotxt">Score</string>
+    <string name="puntuacio"> -- </string>
+    <string name="uid"> -- </string>
+    <string name="correo"> -- </string>
+    <string name="nom"> -- </string>
+    <string name="MenuTxt">MENU</string>
+    <string name="jugarBtn">Play</string>
+    <string name="PuntuacionsBtn">High Scores</string>
+    <string name="CreditsBtn">Credits</string>
 </resources>

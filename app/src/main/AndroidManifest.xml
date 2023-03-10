@@ -12,6 +12,12 @@
         android:theme="@style/Theme.JankenUltra"
         tools:targetApi="31">
         <activity
+            android:name=".Menu"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
