@@ -3,17 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="#000000"
     tools:context=".Menu">
 
     <LinearLayout
+        android:id="@+id/paddin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="30dp">
+        android:padding="100dp">
         <!-- Text La meva puntuació -->
         <!-- contingut puntuació -->
         <TextView
@@ -36,7 +37,8 @@
             android:id="@+id/alienimagen"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:background="#420381"
+            android:background="@drawable/rounded_corner"
+            android:radius="50dp"
             android:src="@drawable/predator" />
         <!-- uid -->
         <TextView
@@ -70,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#380AB6"
+            android:background="@drawable/custombutton"
             android:text="@string/jugarBtn" />
         <!-- BOTO DE puntuacions -->
         <Button
@@ -78,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#380AB6"
+            android:background="@drawable/custombutton"
             android:text="@string/PuntuacionsBtn" />
         <!-- BOTO DE Credits -->
         <Button
@@ -86,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#380AB6"
+            android:background="@drawable/custombutton"
             android:text="@string/CreditsBtn" />
         <!-- BOTO DE Tancar sessió -->
         <Button
@@ -94,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="#270583"
+            android:background="@drawable/custombutton"
             android:text="@string/tancarSessio" />
     </LinearLayout>
 </ScrollView>
