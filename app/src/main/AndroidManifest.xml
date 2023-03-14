@@ -19,6 +19,9 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".credits"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity

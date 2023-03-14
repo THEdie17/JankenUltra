@@ -11,6 +11,9 @@ import com.google.firebase.auth.FirebaseUser
 class Menu : AppCompatActivity() {
     //creem unes variables per comprovar ususari i authentificació
     lateinit var closeSession: Button
+    //Boton per anar als credits
+    lateinit var creditsBtn: Button
+
     lateinit var auth: FirebaseAuth
 
     var user: FirebaseUser? = null
@@ -20,6 +23,12 @@ class Menu : AppCompatActivity() {
         closeSession = findViewById<Button>(R.id.tancarSessio)
         closeSession.setOnClickListener(){
             tancalaSessio()
+        }
+
+        creditsBtn = findViewById<Button>(R.id.CreditsBtn)
+        creditsBtn.setOnClickListener(){
+            val intent= Intent(this, credits::class.java)
+            startActivity(intent)
         }
 
 
