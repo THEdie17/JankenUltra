@@ -8,18 +8,19 @@ import android.text.TextUtils.replace
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+
 import androidx.fragment.app.FragmentTransaction
 import com.example.jankenultra.R.*
 import java.util.*
 
-class credits: AppCompatActivity(){
+class Credits: AppCompatActivity(){
 
     lateinit var button: Button
     lateinit var transaction: FragmentTransaction
     lateinit var timer:Timer
     lateinit var timer2:CountDownTimer
 
-    private lateinit var fragment1:Fragment
+    private lateinit var fragment1: Fragment
     private lateinit var fragment2:Fragment
 
 
@@ -32,14 +33,15 @@ class credits: AppCompatActivity(){
 
 
         fragment1 = CreditFragment1_Logo()
-        fragment2 = creditFragment2_author()
+        fragment2 = CreditFragment2_Author()
 
+        """
         supportFragmentManager.commit {
             replace<CreditFragment1_Logo>(R.id.frame)
             setReorderingAllowed(true)
             addToBackStack("replacement")
         }
-
+        """
         var timer = Timer()
 
         button = findViewById<Button>(id.buttonreturn)

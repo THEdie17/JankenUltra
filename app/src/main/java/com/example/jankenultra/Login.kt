@@ -1,58 +1,62 @@
 package com.example.jankenultra
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 
 
 class Login : AppCompatActivity() {
-    lateinit var correoLogin : EditText
-    lateinit var passLogin : EditText
-    lateinit var login : Button
-    lateinit var auth: FirebaseAuth
+    private lateinit var emailLogin : EditText
+    private lateinit var passLogin : EditText
+    private lateinit var login : Button
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         //Despleguem les variables que farem servir
-        correoLogin = findViewById<EditText>(R.id.emailLogin)
+        emailLogin = findViewById<EditText>(R.id.emailLogin)
         passLogin = findViewById<EditText>(R.id.passLogin)
         auth = FirebaseAuth.getInstance()
         login = findViewById<Button>(R.id.login)
-        login.setOnClickListener() {
+
+        val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")
+
+        emailLogin.typeface = tf
+        passLogin.typeface = (tf)
+        login.typeface = (tf)
+
+        login.setOnClickListener {
             //Abans de fer el registre validem les dades
-            var email: String = correoLogin.text.toString()
-            var passw: String = passLogin.text.toString()
+            val email: String = emailLogin.text.toString()
+            val passw: String = passLogin.text.toString()
             // validació del correu
             // si no es de tipus correu
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                correoLogin.error = "Invalid Mail"
+                emailLogin.error = "Invalid Mail"
             } else if (passw.length < 6) {
                 passLogin.error = "Password less than 6 chars"
             } else {
                 // aquí farem LOGIN al jugador
-                LogindeJugador(email, passw)
+                PlayerLogin(email, passw)
             }
         }
     }
 
-    private fun LogindeJugador(email: String, passw: String) {
+    private fun PlayerLogin(email: String, passw: String) {
         auth.signInWithEmailAndPassword(email, passw)
             .addOnCompleteListener(this)
             { task ->
                 if (task.isSuccessful) {
-                    val tx: String = "Benvingut " + email
+                    val tx = "Benvingut $email"
                     Toast.makeText(this, tx, Toast.LENGTH_LONG).show()
                     val user = auth.currentUser
                     updateUI(user)
@@ -65,7 +69,7 @@ class Login : AppCompatActivity() {
             }
     }
 
-    fun updateUI(user: FirebaseUser?) {
+    private fun updateUI(user: FirebaseUser?) {
         val intent = Intent(this, Menu::class.java)
         startActivity(intent)
     }

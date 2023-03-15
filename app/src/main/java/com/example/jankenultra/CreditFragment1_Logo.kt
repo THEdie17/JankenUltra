@@ -34,7 +34,7 @@ class CreditFragment1_Logo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credit_fragment1__logo, container, false)
+        return inflater.inflate(R.layout.fragment_credit_fragment1_logo, container, false)
     }
 
     companion object {

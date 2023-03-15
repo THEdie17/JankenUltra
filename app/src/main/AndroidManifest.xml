@@ -15,11 +15,12 @@
         <activity
             android:name=".Menu"
             android:exported="false" />
+
         <activity
-            android:name=".Login"
+            android:name=".Credits"
             android:exported="false" />
         <activity
-            android:name=".credits"
+            android:name=".Login"
             android:exported="false" />
         <activity
             android:name=".Register"
