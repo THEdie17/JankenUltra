@@ -39,11 +39,8 @@ class Register : AppCompatActivity() {
         val formattedDate = formatter.format(date)
         //ara la mostrem al TextView
         dateTxt.text = formattedDate
-        val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
-        emailEt.setTypeface(tf)
-        passEt.setTypeface(tf)
-        nameEt.setTypeface(tf)
         dateTxt.setTypeface(tf)
         register.setTypeface(tf)
 

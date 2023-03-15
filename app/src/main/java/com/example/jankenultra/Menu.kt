@@ -27,7 +27,7 @@ class Menu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
         myScore=findViewById(R.id.miPuntuaciotxt)
         score=findViewById(R.id.puntuacio)
