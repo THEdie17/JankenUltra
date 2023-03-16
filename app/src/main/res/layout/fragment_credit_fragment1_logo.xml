@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:background="#000000"
             android:paddingTop="-100dp"
-            android:text="@string/hello_blank_fragment"
+            android:text="2nd DAM"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="60sp"
