@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val loginBtn = findViewById<Button>(R.id.LOGINBTN)
         val registerBtn = findViewById<Button>(R.id.REGISTERBTN)
 
-        val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
         loginBtn.typeface = tf
         registerBtn.typeface = tf
 

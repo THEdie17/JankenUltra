@@ -22,13 +22,14 @@ class Menu : AppCompatActivity() {
     private lateinit var uid: TextView
     private lateinit var emailPlayer: TextView
     private lateinit var usernamePlayer: TextView
-    lateinit var button: Button
+
 
     var user: FirebaseUser? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        """val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")""""
+
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
         myScore=findViewById(R.id.miPuntuaciotxt)
         score=findViewById(R.id.puntuacio)
@@ -41,18 +42,20 @@ class Menu : AppCompatActivity() {
         playBtn =findViewById<Button>(R.id.jugarBtn)
         closeSession = findViewById<Button>(R.id.tancarSessio)
 
-        """"
+
         myScore.typeface = tf
         score.typeface =(tf)
         uid.typeface =(tf)
         emailPlayer.typeface =(tf)
         usernamePlayer.typeface =(tf)
+
         //fem el mateix amb el text dels botons
+
         closeSession.typeface =(tf)
         creditsBtn.typeface =(tf)
         scoresBtn.typeface =(tf)
         playBtn.typeface =(tf)
-        """
+
         closeSession.setOnClickListener{
             tancalaSessio()
 
@@ -66,6 +69,19 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
         }
 
+        scoresBtn.setOnClickListener{
+            Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
+        }
+        playBtn.setOnClickListener{
+            Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+
+        creditsBtn.setOnClickListener{
+            Toast.makeText(this,"Credits", Toast.LENGTH_SHORT).show()
+        }
         scoresBtn.setOnClickListener{
             Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
         }

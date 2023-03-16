@@ -28,10 +28,8 @@ class Login : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         login = findViewById<Button>(R.id.login)
 
-        val tf = Typeface.createFromAsset(assets,"fonts/janken.ttf")
 
-        emailLogin.typeface = tf
-        passLogin.typeface = (tf)
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
         login.typeface = (tf)
 
         login.setOnClickListener {
