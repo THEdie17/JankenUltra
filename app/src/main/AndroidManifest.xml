@@ -15,6 +15,10 @@
         <activity
             android:name=".Menu"
             android:exported="false" />
+
+        <activity
+            android:name=".Credits"
+            android:exported="false" />
         <activity
             android:name=".Login"
             android:exported="false" />

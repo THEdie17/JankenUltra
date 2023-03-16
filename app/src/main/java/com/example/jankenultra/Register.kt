@@ -39,6 +39,7 @@ class Register : AppCompatActivity() {
         val formattedDate = formatter.format(date)
         //ara la mostrem al TextView
         dateTxt.text = formattedDate
+
         val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
         dateTxt.setTypeface(tf)
