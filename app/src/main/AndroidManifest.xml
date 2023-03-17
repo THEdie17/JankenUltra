@@ -4,18 +4,20 @@
 
     <application
         android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.JankenUltra"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".choseLevel"
+            android:exported="false" />
         <activity
             android:name=".Menu"
             android:exported="false" />
-
         <activity
             android:name=".Credits"
             android:exported="false" />

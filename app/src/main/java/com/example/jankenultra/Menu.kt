@@ -74,6 +74,8 @@ class Menu : AppCompatActivity() {
         }
         playBtn.setOnClickListener{
             Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
+            val intent= Intent(this, choseLevel::class.java)
+            startActivity(intent)
         }
 
 
