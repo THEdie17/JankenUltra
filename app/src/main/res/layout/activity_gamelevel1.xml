@@ -1,7 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#000000">
 
     <TextView
         android:id="@+id/textView1"
@@ -14,51 +16,6 @@
         tools:context=".RockPaperScissors" />
 
     <Button
-        android:id="@+id/buttonRock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="147dp"
-        android:layout_toLeftOf="@+id/textView1"
-        android:background="@drawable/rock" />
-
-    <Button
-        android:id="@+id/buttonPaper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonRock"
-        android:layout_alignBottom="@+id/buttonRock"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/paper"
-        android:text=" " />
-
-    <Button
-        android:id="@+id/buttonScissors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/buttonPaper"
-        android:layout_alignBottom="@+id/buttonPaper"
-        android:layout_marginLeft="23dp"
-        android:layout_toRightOf="@+id/textView1"
-        android:background="@drawable/scissors" />
-
-    <ImageView
-        android:id="@+id/imageViewAnswerUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="26dp"
-        android:layout_toLeftOf="@+id/buttonPaper"/>
-
-    <ImageView
-        android:id="@+id/ImageViewAnswerAndroid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/buttonScissors"
-        android:layout_alignTop="@+id/imageViewAnswerUser"/>
-
-    <Button
         android:id="@+id/button"
         android:layout_width="157dp"
         android:layout_height="wrap_content"
@@ -69,5 +26,87 @@
         android:layout_marginEnd="128dp"
         android:layout_marginBottom="48dp"
         android:text="Exit" />
+
+    <ImageView
+        android:id="@+id/UserChoice"
+        android:layout_width="102dp"
+        android:layout_height="151dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginEnd="238dp"
+        android:layout_marginBottom="339dp"
+        app:srcCompat="@drawable/nochoice" />
+
+    <ImageView
+        android:id="@+id/MachineChoice"
+        android:layout_width="102dp"
+        android:layout_height="151dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="227dp"
+        android:layout_marginTop="238dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="341dp"
+        app:srcCompat="@drawable/nochoice" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="283dp"
+        android:layout_height="52dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="583dp"
+        android:text="Winner: ???"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/buttonRock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="171dp"
+        app:srcCompat="@drawable/rock" />
+
+    <ImageButton
+        android:id="@+id/buttonPaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="125dp"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageButton
+        android:id="@+id/buttonScissors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="277dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="174dp"
+        app:srcCompat="@drawable/scissors" />
 
 </RelativeLayout>

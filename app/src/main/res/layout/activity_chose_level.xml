@@ -28,7 +28,7 @@
             android:text="Levels"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="96sp" />
+            android:textSize="96sp"/>
 
         <Button
             android:id="@+id/level1"
@@ -37,7 +37,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:text="Level1"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/custombutton" />
 
         <Button
             android:id="@+id/level2"
@@ -46,7 +47,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:text="Level2"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/custombutton" />
 
         <Button
             android:id="@+id/level3"
@@ -55,7 +57,8 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:text="Level3"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:background="@drawable/custombutton"/>
 
         <Button
             android:id="@+id/back"
@@ -64,6 +67,7 @@
             android:layout_marginLeft="85dp"
             android:layout_marginTop="40dp"
             android:text="Go back"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:background="@drawable/custombutton"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
