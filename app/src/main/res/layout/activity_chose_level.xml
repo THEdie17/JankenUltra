@@ -62,12 +62,12 @@
 
         <Button
             android:id="@+id/back"
-            android:layout_width="228dp"
+            android:layout_width="215dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="85dp"
+            android:layout_marginLeft="101dp"
             android:layout_marginTop="40dp"
+            android:background="@drawable/custombutton"
             android:text="Go back"
-            android:textSize="12sp"
-            android:background="@drawable/custombutton"/>
+            android:textSize="12sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
