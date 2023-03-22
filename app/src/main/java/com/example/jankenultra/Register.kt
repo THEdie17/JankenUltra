@@ -42,8 +42,8 @@ class Register : AppCompatActivity() {
 
         val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
-        dateTxt.setTypeface(tf)
-        register.setTypeface(tf)
+        dateTxt.typeface = tf
+        register.typeface = tf
 
         register.setOnClickListener {
             //Abans de fer el registre validem les dades
@@ -92,7 +92,7 @@ class Register : AppCompatActivity() {
             var dateString: String = dateTxt.text.toString()
             //AQUI GUARDA EL CONTINGUT A LA BASE DE DADES
             jumpStart()
-// FALTA FER
+        // FALTA FER
         } else {
             Toast.makeText(
                 this, "ERROR CREATE USER ",Toast.LENGTH_SHORT).show()

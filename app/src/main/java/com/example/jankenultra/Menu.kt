@@ -24,7 +24,7 @@ class Menu : AppCompatActivity() {
     private lateinit var usernamePlayer: TextView
 
 
-    var user: FirebaseUser? = null
+    private var user: FirebaseUser? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
