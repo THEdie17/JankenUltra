@@ -57,7 +57,7 @@ class Menu : AppCompatActivity() {
         playBtn.typeface =(tf)
 
         closeSession.setOnClickListener{
-            tancalaSessio()
+            closeTheSession()
 
         }
 
@@ -69,17 +69,11 @@ class Menu : AppCompatActivity() {
             startActivity(intent)
         }
 
-        scoresBtn.setOnClickListener{
-            Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
-        }
         playBtn.setOnClickListener{
             Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
-            val intent= Intent(this, choseLevel::class.java)
+            val intent= Intent(this, chooseLevel::class.java)
             startActivity(intent)
         }
-
-
-
 
         creditsBtn.setOnClickListener{
             Toast.makeText(this,"Credits", Toast.LENGTH_SHORT).show()
@@ -87,20 +81,18 @@ class Menu : AppCompatActivity() {
         scoresBtn.setOnClickListener{
             Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
         }
-        playBtn.setOnClickListener{
-            Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
-        }
+
 
 
 
 
     }
     override fun onStart() {
-        usuariLogejat()
+        loggedUser()
         super.onStart()
     }
 
-    private fun usuariLogejat()
+    private fun loggedUser()
     {
         if (user !=null)
         {
@@ -115,7 +107,7 @@ class Menu : AppCompatActivity() {
         }
     }
 
-    private fun tancalaSessio() {
+    private fun closeTheSession() {
         auth.signOut() //tanca la sessió
         //va a la pantalla inicial
         val intent= Intent(this, MainActivity::class.java)

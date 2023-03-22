@@ -3,10 +3,8 @@ package com.example.jankenultra
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import kotlin.random.Random
 
 class GameLevel1 : AppCompatActivity() {
@@ -31,7 +29,7 @@ class GameLevel1 : AppCompatActivity() {
 
         exit = findViewById<Button>(R.id.button)
         exit.setOnClickListener{
-            val intent= Intent(this, choseLevel::class.java)
+            val intent= Intent(this, chooseLevel::class.java)
             startActivity(intent)
         }
 
