@@ -74,10 +74,6 @@ class Menu : AppCompatActivity() {
             val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
-
-        creditsBtn.setOnClickListener{
-            Toast.makeText(this,"Credits", Toast.LENGTH_SHORT).show()
-        }
         scoresBtn.setOnClickListener{
             Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
         }
