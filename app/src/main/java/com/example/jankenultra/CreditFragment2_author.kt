@@ -13,10 +13,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [CreditFragment1_Logo.newInstance] factory method to
+ * Use the [CreditFragment2Author.newInstance] factory method to
  * create an instance of this fragment.
  */
-class CreditFragment1_Logo : Fragment() {
+class CreditFragment2Author : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -34,7 +34,7 @@ class CreditFragment1_Logo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credit_fragment1_logo, container, false)
+        return inflater.inflate(R.layout.fragment_credit_fragment2_author, container, false)
     }
 
     companion object {
@@ -44,12 +44,12 @@ class CreditFragment1_Logo : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment CreditFragment1_Logo.
+         * @return A new instance of fragment CreditFragment2Author.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            CreditFragment1_Logo().apply {
+            CreditFragment2Author().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

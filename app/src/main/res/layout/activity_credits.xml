@@ -11,6 +11,7 @@
         android:id="@+id/buttonreturn"
         android:layout_width="310dp"
         android:layout_height="65dp"
+        android:background="@drawable/custombutton"
         android:onClick="jumpMain"
         android:text="Return"
         android:textSize="34sp"

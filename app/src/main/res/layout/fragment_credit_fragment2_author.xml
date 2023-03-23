@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/purple_200"
-    tools:context=".CreditFragment2_Author">
+    tools:context=".CreditFragment2Author">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="547dp"
+            android:layout_height="608dp"
             android:background="#000000"
             android:orientation="vertical">
 
@@ -35,7 +35,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Iker Sanchez Fernandez"
+                android:text="Iker Sánchez Fernández"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF" />
 
@@ -70,7 +70,7 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="354dp"
-                android:layout_height="197dp"
+                android:layout_height="215dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="20dp"
                 android:background="#57385C"
