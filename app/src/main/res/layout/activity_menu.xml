@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="100dp">
+        android:padding="50dp">
         <!-- Text La meva puntuació -->
         <!-- contingut puntuació -->
         <TextView
@@ -37,10 +37,10 @@
             android:id="@+id/alienimagen"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:background="@drawable/rounded_corner"
-            android:scaleType="fitCenter"
             android:adjustViewBounds="true"
+            android:background="@drawable/rounded_corner"
             android:radius="50dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/predator" />
         <!-- uid -->
         <TextView
@@ -71,7 +71,7 @@
         <!-- BOTO DE jugar -->
         <Button
             android:id="@+id/jugarBtn"
-            android:layout_width="match_parent"
+            android:layout_width="184dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/custombutton"
@@ -79,7 +79,7 @@
         <!-- BOTO DE puntuacions -->
         <Button
             android:id="@+id/PuntuacionsBtn"
-            android:layout_width="match_parent"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/custombutton"
@@ -87,7 +87,7 @@
         <!-- BOTO DE Credits -->
         <Button
             android:id="@+id/CreditsBtn"
-            android:layout_width="match_parent"
+            android:layout_width="192dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/custombutton"
@@ -95,7 +95,7 @@
         <!-- BOTO DE Tancar sessió -->
         <Button
             android:id="@+id/tancarSessio"
-            android:layout_width="match_parent"
+            android:layout_width="195dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/custombutton"

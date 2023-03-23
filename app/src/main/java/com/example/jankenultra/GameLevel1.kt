@@ -3,16 +3,24 @@ package com.example.jankenultra
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
 class GameLevel1 : AppCompatActivity() {
 
-    private lateinit var rock : Button
-    private lateinit var paper : Button
-    private lateinit var scissors : Button
+    private lateinit var rock : ImageButton
+    private lateinit var paper : ImageButton
+    private lateinit var scissors : ImageButton
     private lateinit var exit : Button
+    val arr = Array(3) { "Rock";"Paper";"Scissors" }
+    var userChoice = -1
+    var userWins = 0
+    var machineChoice = -1
+    var MachineWins = 0
+    var hasFinished = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,21 +37,21 @@ class GameLevel1 : AppCompatActivity() {
 
         exit = findViewById<Button>(R.id.button)
         exit.setOnClickListener{
-            val intent= Intent(this, chooseLevel::class.java)
+            val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
 
-        rock = findViewById<Button>(R.id.buttonRock)
+        rock = findViewById<ImageButton>(R.id.buttonRock)
         rock.setOnClickListener{
             userChoice = 0
         }
 
-        paper = findViewById<Button>(R.id.buttonPaper)
+        paper = findViewById<ImageButton>(R.id.buttonPaper)
         paper.setOnClickListener{
             userChoice = 1
         }
 
-        scissors = findViewById<Button>(R.id.buttonScissors)
+        scissors = findViewById<ImageButton>(R.id.buttonScissors)
         scissors.setOnClickListener{
             userChoice = 2
         }
@@ -76,4 +84,5 @@ class GameLevel1 : AppCompatActivity() {
         }
 
     }
+
 }

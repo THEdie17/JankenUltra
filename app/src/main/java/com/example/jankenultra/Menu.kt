@@ -71,7 +71,7 @@ class Menu : AppCompatActivity() {
 
         playBtn.setOnClickListener{
             Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
-            val intent= Intent(this, chooseLevel::class.java)
+            val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
         scoresBtn.setOnClickListener{

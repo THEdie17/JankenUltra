@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 
-class chooseLevel : AppCompatActivity() {
+class ChooseLevel : AppCompatActivity() {
 
     private lateinit var level1: Button
     private lateinit var level2: Button
@@ -17,7 +17,7 @@ class chooseLevel : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chose_level)
+        setContentView(R.layout.activity_choose_level)
         val tf = Typeface.createFromAsset(assets, "fonts/edosz.ttf")
         levels = findViewById<TextView>(R.id.textView4)
         level1 = findViewById<Button>(R.id.level1)
@@ -28,13 +28,13 @@ class chooseLevel : AppCompatActivity() {
 
         level2 = findViewById<Button>(R.id.level2)
         level2.setOnClickListener {
-            val intent = Intent(this, chooseLevel::class.java)
+            val intent = Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
 
         level3 = findViewById<Button>(R.id.level3)
         level3.setOnClickListener {
-            val intent = Intent(this, chooseLevel::class.java)
+            val intent = Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
 
