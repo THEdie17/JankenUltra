@@ -24,7 +24,7 @@ class Menu : AppCompatActivity() {
     private lateinit var usernamePlayer: TextView
 
 
-    private var user: FirebaseUser? = null
+    var user: FirebaseUser? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
@@ -71,7 +71,7 @@ class Menu : AppCompatActivity() {
 
         playBtn.setOnClickListener{
             Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
-            val intent= Intent(this, chooseLevel::class.java)
+            val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
 

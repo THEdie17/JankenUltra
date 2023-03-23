@@ -13,10 +13,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".chooseLevel"
+            android:name=".ChooseLevel"
             android:exported="false" />
         <activity
             android:name=".Menu"
+            android:exported="false" />
+        <activity
+            android:name=".GameLevel1"
             android:exported="false" />
         <activity
             android:name=".Credits"

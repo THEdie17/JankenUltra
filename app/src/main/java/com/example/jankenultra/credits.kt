@@ -1,16 +1,11 @@
 package com.example.jankenultra
 
-import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.example.jankenultra.R.*
-import java.lang.String
-import java.util.*
 import kotlin.Long
 
 class Credits: AppCompatActivity(){
@@ -23,29 +18,29 @@ class Credits: AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_credits)
+        setContentView(R.layout.activity_credits)
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
+        fragment1 = CreditFragment1Logo()
+        fragment2 = CreditFragment2Author()
 
-        fragment1 = CreditFragment1_Logo()
-        fragment2 = CreditFragment2_Author()
-
-
-        button = findViewById<Button>(id.buttonreturn)
+        button = findViewById(R.id.buttonreturn)
+        button.typeface = tf
         button.setOnClickListener {
-            if (canGoBack == true){
-                val intent = android.content.Intent(this, com.example.jankenultra.Menu::class.java)
+            if (canGoBack){
+                val intent = android.content.Intent(this, Menu::class.java)
                 startActivity(intent)
 
             }
         }
 
-        supportFragmentManager.beginTransaction().add(id.frame, fragment1).commit()
+        supportFragmentManager.beginTransaction().add(R.id.frame, fragment1).commit()
         object : CountDownTimer(5000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
             }
 
             override fun onFinish() {
-                supportFragmentManager.beginTransaction().add(id.frame, fragment2).commit()
+                supportFragmentManager.beginTransaction().add(R.id.frame, fragment2).commit()
                 canGoBack = true
             }
         }.start()

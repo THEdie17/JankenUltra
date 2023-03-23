@@ -83,6 +83,7 @@
         android:layout_marginStart="33dp"
         android:layout_marginEnd="280dp"
         android:layout_marginBottom="171dp"
+        android:contentDescription="Rock"
         app:srcCompat="@drawable/rock" />
 
     <ImageButton
@@ -95,6 +96,7 @@
         android:layout_marginStart="162dp"
         android:layout_marginEnd="151dp"
         android:layout_marginBottom="125dp"
+        android:contentDescription="Paper"
         app:srcCompat="@drawable/paper" />
 
     <ImageButton
@@ -107,6 +109,7 @@
         android:layout_marginStart="277dp"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="174dp"
+        android:contentDescription="Scissors"
         app:srcCompat="@drawable/scissors" />
 
 </RelativeLayout>
