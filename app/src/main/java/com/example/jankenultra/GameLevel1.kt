@@ -2,12 +2,14 @@ package com.example.jankenultra
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
@@ -19,21 +21,28 @@ class GameLevel1 : AppCompatActivity() {
     private lateinit var exit : Button
     private lateinit var userChoiceImg : ImageView
     private lateinit var machineChoiceImg : ImageView
-    private lateinit var scoreLevel : TextView
+    private lateinit var scoreLevel1 : TextView
+    private lateinit var textScore : TextView
     private val arr = arrayOf("Rock", "Paper", "Scissors")
     private var userChoice = -1
     private var userWins = 0
     private var machineChoice = -1
     private var machineWins = 0
     private var hasFinished = false
+    private var scoreLevel = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gamelevel1)
-        scoreLevel = findViewById(R.id.scoreLevel1)
+        val tf = Typeface.createFromAsset(assets, "fonts/edosz.ttf")
+        scoreLevel1 = findViewById(R.id.scoreLevel1)
+        textScore = findViewById(R.id.textScore)
         userChoiceImg = findViewById(R.id.UserChoice)
         machineChoiceImg = findViewById(R.id.MachineChoice)
         exit = findViewById(R.id.button)
+        scoreLevel1.typeface = tf
+        textScore.typeface = tf
+        scoreLevel1.text = "0"
         exit.setOnClickListener{
             val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
@@ -78,15 +87,33 @@ class GameLevel1 : AppCompatActivity() {
 
         // Check if the game is over
         if (userWins == 3) {
-            Toast.makeText(this,"VICTORY", Toast.LENGTH_SHORT).show()
             hasFinished = true
-            val intent= Intent(this, Menu::class.java)
-            startActivity(intent)
+            AlertDialog.Builder(this)
+                .setTitle("Congratulations!")
+                .setMessage("You won the game!")
+                .setPositiveButton("Continue") { _, _ ->
+                    continueGame()
+                }
+                .setNegativeButton("Exit") { _, _ ->
+                    val intent = Intent(this, Menu::class.java)
+                    startActivity(intent)
+                }
+                .setCancelable(false)
+                .show()
         } else if (machineWins == 3) {
-            Toast.makeText(this,"LOSE", Toast.LENGTH_SHORT).show()
             hasFinished = true
-            val intent= Intent(this, Menu::class.java)
-            startActivity(intent)
+            AlertDialog.Builder(this)
+                .setTitle("Too bad loser!")
+                .setMessage("The machine won the game!")
+                .setPositiveButton("Continue") { _, _ ->
+                    resetGame()
+                }
+                .setNegativeButton("Exit") { _, _ ->
+                    val intent = Intent(this, Menu::class.java)
+                    startActivity(intent)
+                }
+                .setCancelable(false)
+                .show()
         }
 
         // Reset userChoice
@@ -96,6 +123,24 @@ class GameLevel1 : AppCompatActivity() {
     @SuppressLint("DiscouragedApi")
     private fun getDrawableResourceId(name: String): Int {
         return resources.getIdentifier(name.lowercase(), "drawable", packageName)
+    }
+
+    private fun resetGame() {
+        userWins = 0
+        machineWins = 0
+        hasFinished = false
+    }
+
+    private fun continueGame() {
+        userWins = 0
+        machineWins = 0
+        hasFinished = false
+        updateScore()
+    }
+
+    private fun updateScore() {
+        scoreLevel += 100
+        scoreLevel1.text = scoreLevel.toString()
     }
 
 }

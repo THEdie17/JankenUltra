@@ -7,12 +7,14 @@
     android:background="#000000">
 
     <TextView
-        android:id="@+id/textView1"
-        android:layout_width="45dp"
-        android:layout_height="24dp"
+        android:id="@+id/textScore"
+        android:layout_width="73dp"
+        android:layout_height="37dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="50dp"
         android:text="Score:"
         android:textColor="#FFFFFF"
+        android:textSize="20sp"
         app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -33,51 +35,28 @@
 
     <ImageView
         android:id="@+id/UserChoice"
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="238dp"
-        android:layout_marginEnd="238dp"
-        android:layout_marginBottom="341dp"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="175dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nochoice" />
 
     <ImageView
         android:id="@+id/MachineChoice"
-        android:layout_width="0dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="238dp"
-        android:layout_marginTop="238dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="341dp"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="175dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/UserChoice"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.478"
         app:srcCompat="@drawable/nochoice" />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="288dp"
-        android:layout_height="86dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="95dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="583dp"
-        android:text="@string/result"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/buttonRock"
@@ -123,12 +102,13 @@
 
     <TextView
         android:id="@+id/scoreLevel1"
-        android:layout_width="59dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="44dp"
+        android:layout_width="64dp"
+        android:layout_height="37dp"
         android:layout_marginTop="16dp"
         android:text="@string/scoreNumber"
-        app:layout_constraintStart_toStartOf="@+id/textView1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textScore"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
