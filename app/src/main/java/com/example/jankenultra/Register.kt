@@ -11,6 +11,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -90,21 +92,33 @@ class Register : AppCompatActivity() {
             var passString: String = passEt.text.toString()
             var usernameString: String = nameEt.text.toString()
             var dateString: String = dateTxt.text.toString()
-            //AQUI GUARDA EL CONTINGUT A LA BASE DE DADES
-            jumpStart()
+
+            var dadesJugador : HashMap<String,String> = HashMap<String, String>()
+
+            dadesJugador.put ("Uid",uidString)
+            dadesJugador.put ("Email",emailString)
+            dadesJugador.put ("Password",passString)
+            dadesJugador.put ("Nom",usernameString)
+            dadesJugador.put ("Data",dateString)
+            dadesJugador.put ("Puntuacio", score.toString())
+            // Creem un punter a la base de dades i li donem un nom
+            var database: FirebaseDatabase =FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
+            var reference: DatabaseReference = database.getReference("DATA_BASE_JUGADORS")
+            if(reference!=null) {
+                //crea un fill amb els valors de dadesJugador
+                reference.child(uidString).setValue(dadesJugador)
+                Toast.makeText(this, "USUARI BEN REGISTRAT",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                Toast.makeText(this, "ERROR BD", Toast.LENGTH_SHORT).show()
+            }
+            val intent= Intent(this, MainActivity::class.java)
+            startActivity(intent)
         // FALTA FER
         } else {
             Toast.makeText(
                 this, "ERROR CREATE USER ",Toast.LENGTH_SHORT).show()
         }
     }
-
-    private fun jumpStart()
-    {
-        val intent= Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-
 }
 

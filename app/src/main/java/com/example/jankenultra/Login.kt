@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseUser
 
 
 class Login : AppCompatActivity() {
+    companion object{
+        var user_email: String? = null
+    }
     private lateinit var emailLogin : EditText
     private lateinit var passLogin : EditText
     private lateinit var login : Button
@@ -57,6 +60,7 @@ class Login : AppCompatActivity() {
                     val tx = "Benvingut $email"
                     Toast.makeText(this, tx, Toast.LENGTH_LONG).show()
                     val user = auth.currentUser
+                    user_email = email
                     updateUI(user)
                 } else {
                     Toast.makeText(
