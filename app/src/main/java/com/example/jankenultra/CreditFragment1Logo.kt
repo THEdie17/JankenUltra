@@ -32,6 +32,7 @@ class CreditFragment1Logo : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,6 +44,7 @@ class CreditFragment1Logo : Fragment() {
         tv.typeface = myTypeface
         return view
     }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

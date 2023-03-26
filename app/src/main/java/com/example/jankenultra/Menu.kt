@@ -26,6 +26,7 @@ class Menu : AppCompatActivity() {
     private lateinit var uid: TextView
     private lateinit var emailPlayer: TextView
     private lateinit var usernamePlayer: TextView
+
     //Efectos de sonido
     private lateinit var soundPool: SoundPool
     private var soundId: Int = 0
@@ -35,21 +36,22 @@ class Menu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
-        val tf2 = Typeface.createFromAsset(assets,"fonts/retro.ttf")
+        val tf = Typeface.createFromAsset(assets, "fonts/edosz.ttf")
+        val tf2 = Typeface.createFromAsset(assets, "fonts/retro.ttf")
 
-        uid=findViewById(R.id.uid)
-        emailPlayer=findViewById(R.id.correo)
-        usernamePlayer=findViewById(R.id.nom)
-        myScore=findViewById(R.id.miPuntuaciotxt)
-        score=findViewById(R.id.puntuacio)
+        uid = findViewById(R.id.uid)
+        emailPlayer = findViewById(R.id.correo)
+        usernamePlayer = findViewById(R.id.nom)
+        myScore = findViewById(R.id.miPuntuaciotxt)
+        score = findViewById(R.id.puntuacio)
 
         //Efectos de sonido
         soundPool = SoundPool.Builder().setMaxStreams(1).build()
         soundId = soundPool.load(this, R.raw.menu, 1)
 
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
-        auth= FirebaseAuth.getInstance()
+        val database: FirebaseDatabase =
+            FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
+        auth = FirebaseAuth.getInstance()
         user = auth.currentUser
         val myRef = user?.uid?.let { database.reference.child("DATA_BASE_JUGADORS").child(it) }
         myRef?.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -70,50 +72,47 @@ class Menu : AppCompatActivity() {
             }
         })
 
-        creditsBtn =findViewById(R.id.CreditsBtn)
-        scoresBtn =findViewById(R.id.PuntuacionsBtn)
-        playBtn =findViewById(R.id.jugarBtn)
+        creditsBtn = findViewById(R.id.CreditsBtn)
+        scoresBtn = findViewById(R.id.PuntuacionsBtn)
+        playBtn = findViewById(R.id.jugarBtn)
         closeSession = findViewById(R.id.tancarSessio)
 
 
         myScore.typeface = tf
-        score.typeface =(tf)
-        uid.typeface =(tf2)
-        emailPlayer.typeface =(tf2)
-        usernamePlayer.typeface =(tf2)
+        score.typeface = (tf)
+        uid.typeface = (tf2)
+        emailPlayer.typeface = (tf2)
+        usernamePlayer.typeface = (tf2)
 
         //fem el mateix amb el text dels botons
 
-        closeSession.typeface =(tf)
-        creditsBtn.typeface =(tf)
-        scoresBtn.typeface =(tf)
-        playBtn.typeface =(tf)
+        closeSession.typeface = (tf)
+        creditsBtn.typeface = (tf)
+        scoresBtn.typeface = (tf)
+        playBtn.typeface = (tf)
 
-        closeSession.setOnClickListener{
+        closeSession.setOnClickListener {
             closeTheSession()
             playSound()
         }
 
-        creditsBtn.setOnClickListener{
-            Toast.makeText(this,"Credits", Toast.LENGTH_SHORT).show()
+        creditsBtn.setOnClickListener {
+            Toast.makeText(this, "com.example.jankenultra.Credits", Toast.LENGTH_SHORT).show()
             playSound()
-            val intent= Intent(this, Credits::class.java)
+            val intent = Intent(this, Credits::class.java)
             startActivity(intent)
         }
 
-        playBtn.setOnClickListener{
-            Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
+        playBtn.setOnClickListener {
+            Toast.makeText(this, "PLAY", Toast.LENGTH_SHORT).show()
             playSound()
-            val intent= Intent(this, ChooseLevel::class.java)
+            val intent = Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
-        scoresBtn.setOnClickListener{
-            Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
+        scoresBtn.setOnClickListener {
+            Toast.makeText(this, "Scores", Toast.LENGTH_SHORT).show()
             playSound()
         }
-
-
-
 
 
     }
@@ -121,20 +120,20 @@ class Menu : AppCompatActivity() {
     private fun playSound() {
         soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
     }
+
     override fun onStart() {
         loggedUser()
         super.onStart()
     }
-    private fun loggedUser()
-    {
-        if (user !=null)
-        {
-            Toast.makeText(this,"Player logged in",
-                Toast.LENGTH_SHORT).show()
-        }
-        else
-        {
-            val intent= Intent(this, MainActivity::class.java)
+
+    private fun loggedUser() {
+        if (user != null) {
+            Toast.makeText(
+                this, "Player logged in",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -143,13 +142,10 @@ class Menu : AppCompatActivity() {
     private fun closeTheSession() {
         auth.signOut() //tanca la sessió
         //va a la pantalla inicial
-        val intent= Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
-
-
-
 
 
 }

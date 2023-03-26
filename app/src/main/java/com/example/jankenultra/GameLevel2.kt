@@ -16,14 +16,14 @@ import kotlin.random.Random
 @Suppress("DEPRECATION")
 class GameLevel2 : AppCompatActivity() {
 
-    private lateinit var rock : ImageButton
-    private lateinit var paper : ImageButton
-    private lateinit var scissors : ImageButton
-    private lateinit var exit : Button
-    private lateinit var userChoiceImg : ImageView
-    private lateinit var machineChoiceImg : ImageView
-    private lateinit var scoreLevel1 : TextView
-    private lateinit var textScore : TextView
+    private lateinit var rock: ImageButton
+    private lateinit var paper: ImageButton
+    private lateinit var scissors: ImageButton
+    private lateinit var exit: Button
+    private lateinit var userChoiceImg: ImageView
+    private lateinit var machineChoiceImg: ImageView
+    private lateinit var scoreLevel1: TextView
+    private lateinit var textScore: TextView
     private lateinit var auth: FirebaseAuth
     private var user: FirebaseUser? = null
     private val arr = arrayOf("Rock", "Paper", "Scissors")
@@ -46,25 +46,25 @@ class GameLevel2 : AppCompatActivity() {
         scoreLevel1.typeface = tf
         textScore.typeface = tf
         scoreLevel1.text = "0"
-        exit.setOnClickListener{
-            val intent= Intent(this, ChooseLevel::class.java)
+        exit.setOnClickListener {
+            val intent = Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
 
         rock = findViewById(R.id.buttonRock)
-        rock.setOnClickListener{
+        rock.setOnClickListener {
             userChoice = 0
             checkButton()
         }
 
         paper = findViewById(R.id.buttonPaper)
-        paper.setOnClickListener{
+        paper.setOnClickListener {
             userChoice = 1
             checkButton()
         }
 
         scissors = findViewById(R.id.buttonScissors)
-        scissors.setOnClickListener{
+        scissors.setOnClickListener {
             userChoice = 2
             checkButton()
         }
@@ -92,7 +92,7 @@ class GameLevel2 : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle(R.string.congratulations)
                 .setMessage(R.string.userWon)
-                .setPositiveButton(R.string.continueBtn) { _, _ ->}
+                .setPositiveButton(R.string.continueBtn) { _, _ -> }
                 .setNegativeButton(R.string.exitBtn) { _, _ ->
                     val intent = Intent(this, Menu::class.java)
                     startActivity(intent)
@@ -107,7 +107,7 @@ class GameLevel2 : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle(R.string.youlost)
                 .setMessage(R.string.loserMessage)
-                .setPositiveButton(R.string.continueBtn) { _, _ ->}
+                .setPositiveButton(R.string.continueBtn) { _, _ -> }
                 .setNegativeButton(R.string.exitBtn) { _, _ ->
                     val intent = Intent(this, Menu::class.java)
                     startActivity(intent)
@@ -143,8 +143,9 @@ class GameLevel2 : AppCompatActivity() {
         scoreLevel += 500
         scoreLevel1.text = scoreLevel.toString()
 
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
-        auth= FirebaseAuth.getInstance()
+        val database: FirebaseDatabase =
+            FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
+        auth = FirebaseAuth.getInstance()
         user = auth.currentUser
         val myRef = user?.uid?.let { database.reference.child("DATA_BASE_JUGADORS").child(it) }
         myRef?.addListenerForSingleValueEvent(object : ValueEventListener {

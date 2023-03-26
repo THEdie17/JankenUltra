@@ -15,6 +15,7 @@ class ChooseLevel : AppCompatActivity() {
     private lateinit var level3: Button
     private lateinit var back: Button
     private lateinit var levels: TextView
+
     //Efectos de sonido
     private lateinit var soundPool: SoundPool
     private var soundId: Int = 0
