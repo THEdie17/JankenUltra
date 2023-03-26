@@ -2,6 +2,7 @@ package com.example.jankenultra
 
 import android.content.Intent
 import android.graphics.Typeface
+import android.media.SoundPool
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -26,6 +27,9 @@ class Register : AppCompatActivity() {
     private lateinit var dateTxt: TextView
     private lateinit var register: Button
     private lateinit var auth: FirebaseAuth
+    //Efectos de sonido
+    private lateinit var soundPool: SoundPool
+    private var soundId: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -35,6 +39,11 @@ class Register : AppCompatActivity() {
         dateTxt = findViewById(R.id.dateTxt)
         register = findViewById(R.id.register)
         auth = FirebaseAuth.getInstance()
+
+        //Efectos de sonido
+        soundPool = SoundPool.Builder().setMaxStreams(1).build()
+        soundId = soundPool.load(this, R.raw.menu, 1)
+
 
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat.getDateInstance() //or use getDateInstance()
@@ -48,6 +57,7 @@ class Register : AppCompatActivity() {
         register.typeface = tf
 
         register.setOnClickListener {
+            playSound()
             //Abans de fer el registre validem les dades
             val email: String = emailEt.text.toString()
             val pass: String = passEt.text.toString()
@@ -109,5 +119,9 @@ class Register : AppCompatActivity() {
             Toast.makeText(
                 this, "ERROR CREATE USER ",Toast.LENGTH_SHORT).show()
         }
+
+    private fun playSound() {
+        soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
+    }
 }
 

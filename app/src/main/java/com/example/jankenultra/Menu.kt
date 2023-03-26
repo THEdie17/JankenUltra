@@ -2,6 +2,7 @@ package com.example.jankenultra
 
 import android.content.Intent
 import android.graphics.Typeface
+import android.media.SoundPool
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -25,7 +26,9 @@ class Menu : AppCompatActivity() {
     private lateinit var uid: TextView
     private lateinit var emailPlayer: TextView
     private lateinit var usernamePlayer: TextView
-
+    //Efectos de sonido
+    private lateinit var soundPool: SoundPool
+    private var soundId: Int = 0
 
     private var user: FirebaseUser? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +43,10 @@ class Menu : AppCompatActivity() {
         usernamePlayer=findViewById(R.id.nom)
         myScore=findViewById(R.id.miPuntuaciotxt)
         score=findViewById(R.id.puntuacio)
+
+        //Efectos de sonido
+        soundPool = SoundPool.Builder().setMaxStreams(1).build()
+        soundId = soundPool.load(this, R.raw.menu, 1)
 
         val database: FirebaseDatabase = FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
         auth= FirebaseAuth.getInstance()
@@ -84,25 +91,25 @@ class Menu : AppCompatActivity() {
 
         closeSession.setOnClickListener{
             closeTheSession()
-
+            playSound()
         }
-
-
-
 
         creditsBtn.setOnClickListener{
             Toast.makeText(this,"Credits", Toast.LENGTH_SHORT).show()
+            playSound()
             val intent= Intent(this, Credits::class.java)
             startActivity(intent)
         }
 
         playBtn.setOnClickListener{
             Toast.makeText(this,"PLAY", Toast.LENGTH_SHORT).show()
+            playSound()
             val intent= Intent(this, ChooseLevel::class.java)
             startActivity(intent)
         }
         scoresBtn.setOnClickListener{
             Toast.makeText(this,"Scores", Toast.LENGTH_SHORT).show()
+            playSound()
         }
 
 
@@ -111,12 +118,13 @@ class Menu : AppCompatActivity() {
 
     }
 
-
+    private fun playSound() {
+        soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
+    }
     override fun onStart() {
         loggedUser()
         super.onStart()
     }
-
     private fun loggedUser()
     {
         if (user !=null)
