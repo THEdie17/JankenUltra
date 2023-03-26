@@ -29,11 +29,11 @@ class Register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        emailEt = findViewById<EditText>(R.id.emailEt)
-        passEt = findViewById<EditText>(R.id.passEt)
-        nameEt = findViewById<EditText>(R.id.nameEt)
-        dateTxt = findViewById<TextView>(R.id.dateTxt)
-        register = findViewById<Button>(R.id.register)
+        emailEt = findViewById(R.id.emailEt)
+        passEt = findViewById(R.id.passEt)
+        nameEt = findViewById(R.id.nameEt)
+        dateTxt = findViewById(R.id.dateTxt)
+        register = findViewById(R.id.register)
         auth = FirebaseAuth.getInstance()
 
         val date = Calendar.getInstance().time
@@ -70,55 +70,44 @@ class Register : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Toast.makeText(
-                        this, "createUserWithEmail:success", Toast.LENGTH_SHORT
-                    ).show()
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     Toast.makeText(
                         baseContext, "Authentication failed .", Toast.LENGTH_SHORT).show()
-                    //updateUI(null)
                 }
             }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-        //hi ha un interrogant perquè podria ser null
+    private fun updateUI(user: FirebaseUser?) = //hi ha un interrogant perquè podria ser null
         if (user != null) {
-            var score = 0
-            var uidString: String = user.uid
-            var emailString: String = emailEt.text.toString()
-            var passString: String = passEt.text.toString()
-            var usernameString: String = nameEt.text.toString()
-            var dateString: String = dateTxt.text.toString()
+            val score = 0
+            val uidString: String = user.uid
+            val emailString: String = emailEt.text.toString()
+            val passString: String = passEt.text.toString()
+            val usernameString: String = nameEt.text.toString()
+            val dateString: String = dateTxt.text.toString()
 
-            var dadesJugador : HashMap<String,String> = HashMap<String, String>()
+            val dadesJugador : HashMap<String,String> = HashMap<String, String>()
 
-            dadesJugador.put ("Uid",uidString)
-            dadesJugador.put ("Email",emailString)
-            dadesJugador.put ("Password",passString)
-            dadesJugador.put ("Nom",usernameString)
-            dadesJugador.put ("Data",dateString)
-            dadesJugador.put ("Puntuacio", score.toString())
+            dadesJugador["Uid"] = uidString
+            dadesJugador["Email"] = emailString
+            dadesJugador["Password"] = passString
+            dadesJugador["Nom"] = usernameString
+            dadesJugador["Data"] = dateString
+            dadesJugador["Puntuacio"] = score.toString()
             // Creem un punter a la base de dades i li donem un nom
-            var database: FirebaseDatabase =FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
-            var reference: DatabaseReference = database.getReference("DATA_BASE_JUGADORS")
+            val database: FirebaseDatabase =FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
+            val reference: DatabaseReference = database.getReference("DATA_BASE_JUGADORS")
             if(reference!=null) {
                 //crea un fill amb els valors de dadesJugador
                 reference.child(uidString).setValue(dadesJugador)
-                Toast.makeText(this, "USUARI BEN REGISTRAT",Toast.LENGTH_SHORT).show()
-            }
-            else{
-                Toast.makeText(this, "ERROR BD", Toast.LENGTH_SHORT).show()
             }
             val intent= Intent(this, MainActivity::class.java)
             startActivity(intent)
-        // FALTA FER
         } else {
             Toast.makeText(
                 this, "ERROR CREATE USER ",Toast.LENGTH_SHORT).show()
         }
-    }
 }
 

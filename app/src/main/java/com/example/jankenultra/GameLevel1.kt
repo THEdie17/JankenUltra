@@ -4,15 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
 import kotlin.random.Random
 
 class GameLevel1 : AppCompatActivity() {
@@ -78,14 +73,10 @@ class GameLevel1 : AppCompatActivity() {
 
         // Check the result of the round
         when (userChoice) {
-            machineChoice -> Toast.makeText(this, "Round Draw", Toast.LENGTH_SHORT).show()
             0 -> if (machineChoice == 2) userWins++ else machineWins++
             1 -> if (machineChoice == 0) userWins++ else machineWins++
             2 -> if (machineChoice == 1) userWins++ else machineWins++
         }
-
-        // Show the score
-        Toast.makeText(this, " wins $userWins", Toast.LENGTH_SHORT).show()
 
         // Check if the game is over
         if (userWins == 3) {
@@ -142,16 +133,16 @@ class GameLevel1 : AppCompatActivity() {
         scoreLevel += 100
         scoreLevel1.text = scoreLevel.toString()
 
-        var database: FirebaseDatabase =FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
-        var reference: DatabaseReference = database.getReference("DATA_BASE_JUGADORS")
-        var email = Login.user_email
+        val database: FirebaseDatabase =FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
+        val reference: DatabaseReference = database.getReference("DATA_BASE_JUGADORS")
+        val email = Login.user_email
 
         val query = reference.orderByChild("Email").equalTo(email)
 
         query.addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
 
-                reference.child("Puntuacio").value.toString()
+                reference.child("Puntuacio").toString()
                 reference.child("Puntuacio").setValue(scoreLevel1.text)
             }
 
@@ -160,7 +151,7 @@ class GameLevel1 : AppCompatActivity() {
             }
         })
 
-        val nuevosDatos = mapOf(
+        mapOf(
             "Puntuacio" to scoreLevel.toString()
         )
     }

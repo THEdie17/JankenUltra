@@ -9,9 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-
-
 
 
 class Login : AppCompatActivity() {
@@ -26,10 +23,10 @@ class Login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         //Despleguem les variables que farem servir
-        emailLogin = findViewById<EditText>(R.id.emailLogin)
-        passLogin = findViewById<EditText>(R.id.passLogin)
+        emailLogin = findViewById(R.id.emailLogin)
+        passLogin = findViewById(R.id.passLogin)
         auth = FirebaseAuth.getInstance()
-        login = findViewById<Button>(R.id.login)
+        login = findViewById(R.id.login)
 
 
         val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
@@ -47,21 +44,21 @@ class Login : AppCompatActivity() {
                 passLogin.error = "Password less than 6 chars"
             } else {
                 // aquí farem LOGIN al jugador
-                PlayerLogin(email, passw)
+                playerLogin(email, passw)
             }
         }
     }
 
-    private fun PlayerLogin(email: String, passw: String) {
+    private fun playerLogin(email: String, passw: String) {
         auth.signInWithEmailAndPassword(email, passw)
             .addOnCompleteListener(this)
             { task ->
                 if (task.isSuccessful) {
                     val tx = "Benvingut $email"
                     Toast.makeText(this, tx, Toast.LENGTH_LONG).show()
-                    val user = auth.currentUser
+                    auth.currentUser
                     user_email = email
-                    updateUI(user)
+                    updateUI()
                 } else {
                     Toast.makeText(
                         this, "ERROR Autentificació",
@@ -71,7 +68,7 @@ class Login : AppCompatActivity() {
             }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
+    private fun updateUI() {
         val intent = Intent(this, Menu::class.java)
         startActivity(intent)
     }

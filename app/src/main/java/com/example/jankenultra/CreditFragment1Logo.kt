@@ -36,7 +36,7 @@ class CreditFragment1Logo : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.fragment_credit_fragment1_logo, container, false)
         val myTypeface = Typeface.createFromAsset(requireActivity().assets, "fonts/edosz.ttf")
         val tv = view.findViewById<View>(R.id.JankenCredits) as TextView
