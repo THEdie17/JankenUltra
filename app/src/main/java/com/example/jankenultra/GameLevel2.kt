@@ -13,9 +13,8 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlin.random.Random
 
-
 @Suppress("DEPRECATION")
-class GameLevel1 : AppCompatActivity() {
+class GameLevel2 : AppCompatActivity() {
 
     private lateinit var rock : ImageButton
     private lateinit var paper : ImageButton
@@ -87,7 +86,7 @@ class GameLevel1 : AppCompatActivity() {
         }
 
         // Check if the game is over
-        if (userWins == 3) {
+        if (userWins == 5) {
             continueGame()
             hasFinished = true
             AlertDialog.Builder(this)
@@ -100,7 +99,7 @@ class GameLevel1 : AppCompatActivity() {
                 }
                 .setCancelable(false)
                 .show()
-        } else if (machineWins == 3) {
+        } else if (machineWins == 5) {
             resetGame()
             hasFinished = true
 
@@ -141,7 +140,7 @@ class GameLevel1 : AppCompatActivity() {
     }
 
     private fun updateScore() {
-        scoreLevel += 100
+        scoreLevel += 500
         scoreLevel1.text = scoreLevel.toString()
 
         val database: FirebaseDatabase = FirebaseDatabase.getInstance("https://junkerultra-default-rtdb.europe-west1.firebasedatabase.app/")
@@ -154,7 +153,7 @@ class GameLevel1 : AppCompatActivity() {
                 val scoreDB = dataSnapshot.child("Puntuacio").getValue(String::class.java)
 
                 // Update the score in the database
-                val newScore = (scoreDB?.toInt() ?: 0) + 100
+                val newScore = (scoreDB?.toInt() ?: 0) + 500
                 myRef.child("Puntuacio").setValue(newScore.toString())
             }
 

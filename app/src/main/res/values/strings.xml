@@ -39,4 +39,10 @@
     <string name="ExitLevel">EXIT</string>
     <string name="GoBack">GO BACK</string>
     <string name="Authors">Authors</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="youlost">Too bad loser!</string>
+    <string name="userWon">You won!</string>
+    <string name="continueBtn">Continue</string>
+    <string name="exitBtn">Exit</string>
+    <string name="loserMessage">The machine won the game!</string>
 </resources>

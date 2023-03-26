@@ -26,4 +26,10 @@
     <string name="ExitLevel">SALIR</string>
     <string name="GoBack">Volver</string>
     <string name="Authors">Autores</string>
+    <string name="congratulations">Felicidades!</string>
+    <string name="youlost">Has perdido, perdedor!</string>
+    <string name="userWon">Has ganado!</string>
+    <string name="continueBtn">Continuar</string>
+    <string name="exitBtn">Salir</string>
+    <string name="loserMessage">La máquina ha ganado!</string>
 </resources>

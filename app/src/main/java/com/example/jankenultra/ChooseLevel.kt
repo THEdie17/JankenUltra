@@ -28,7 +28,7 @@ class ChooseLevel : AppCompatActivity() {
 
         level2 = findViewById(R.id.level2)
         level2.setOnClickListener {
-            val intent = Intent(this, ChooseLevel::class.java)
+            val intent = Intent(this, GameLevel2::class.java)
             startActivity(intent)
         }
 
