@@ -11,8 +11,8 @@
         android:id="@+id/buttonreturn"
         android:layout_width="310dp"
         android:layout_height="65dp"
-        android:onClick="jumpMain"
-        android:text="Return"
+        android:background="@drawable/custombutton"
+        android:text="@string/RETURNBTN"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,8 +23,8 @@
 
     <FrameLayout
         android:id="@+id/frame"
-        android:layout_width="409dp"
-        android:layout_height="584dp"
+        android:layout_width="410dp"
+        android:layout_height="482dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

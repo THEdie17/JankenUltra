@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JankenUltra</string>
+    <string name="LOGINBTN">Iniciar sesión</string>
+    <string name="REGISTERBTN">Registarse</string>
+    <string name="emailEt">Correo</string>
+    <string name="nameEt">Nombre</string>
+    <string name="passEt">Contraseña</string>
+    <string name="dateTxt">Fecha</string>
+    <string name="register">REGISTRARSE</string>
+    <string name="emailLogin">Correo</string>
+    <string name="passLogin">Contraseña</string>
+    <string name="login">INICIAR SESIÓN</string>
+    <string name="tancarSessio">CERRAR SESIÓN</string>
+    <string name="miPuntuaciotxt">Puntuación</string>
+    <string name="MenuTxt">MENÚ</string>
+    <string name="jugarBtn">Jugar</string>
+    <string name="PuntuacionsBtn">Puntuaciones</string>
+    <string name="CreditsBtn">Créditos</string>
+    <string name="RETURNBTN">Volver</string>
+    <string name="ScoreLevel1">Puntuación</string>
+    <string name="ChooseLevel1">Nivel 1</string>
+    <string name="ChooseLevel2">Nivel 2</string>
+    <string name="ChooseLevel3">Nivel 3</string>
+    <string name="LevelsTitle">Niveles</string>
+    <string name="ExitLevel">SALIR</string>
+    <string name="GoBack">Volver</string>
+    <string name="Authors">Autores</string>
+</resources>

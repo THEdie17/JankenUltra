@@ -15,18 +15,28 @@
     <string name="login">LOGIN</string>
     <string name="tancarSessio">LOGOUT</string>
     <string name="miPuntuaciotxt">Score</string>
-    <string name="puntuacio"> -- </string>
-    <string name="uid"> -- </string>
-    <string name="correo"> -- </string>
-    <string name="nom"> -- </string>
+    <string name="puntuacio" translatable="false"> -- </string>
+    <string name="uid" translatable="false"> -- </string>
+    <string name="correo" translatable="false"> -- </string>
+    <string name="nom" translatable="false"> -- </string>
     <string name="MenuTxt">MENU</string>
     <string name="jugarBtn">Play</string>
     <string name="PuntuacionsBtn">High Scores</string>
     <string name="CreditsBtn">Credits</string>
-    <string name="level1">Credits</string>
-    <string name="level2">Credits</string>
-    <string name="level3">Credits</string>
-    <string name="back">Credits</string>
+    <string name="level1" translatable="false">Credits</string>
+    <string name="level2" translatable="false">Credits</string>
+    <string name="level3" translatable="false">Credits</string>
+    <string name="back" translatable="false">Credits</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="scoreNumber" translatable="false" />
+    <string name="RETURNBTN">Return</string>
+    <string name="ScoreLevel1">Score</string>
+    <string name="ChooseLevel1">Level 1</string>
+    <string name="ChooseLevel2">Level 2</string>
+    <string name="ChooseLevel3">Level 3</string>
+    <string name="LevelsTitle">LEVELS</string>
+    <string name="ExitLevel">EXIT</string>
+    <string name="GoBack">GO BACK</string>
+    <string name="Authors">Authors</string>
 </resources>

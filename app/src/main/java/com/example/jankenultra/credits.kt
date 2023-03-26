@@ -1,53 +1,57 @@
 package com.example.jankenultra
 
-import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.example.jankenultra.R.*
-import java.lang.String
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import java.util.*
-import kotlin.Long
 
 class Credits: AppCompatActivity(){
 
     lateinit var button: Button
-
-    private lateinit var fragment1: Fragment
-    private lateinit var fragment2:Fragment
-    private var canGoBack = false
-
+    private var timer= Timer()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layout.activity_credits)
+        setContentView(R.layout.activity_credits)
+        val tf = Typeface.createFromAsset(assets,"fonts/edosz.ttf")
 
-
-        fragment1 = CreditFragment1_Logo()
-        fragment2 = CreditFragment2_Author()
-
-
-        button = findViewById<Button>(id.buttonreturn)
+        button = findViewById(R.id.buttonreturn)
+        button.typeface = tf
         button.setOnClickListener {
-            if (canGoBack == true){
-                val intent = android.content.Intent(this, com.example.jankenultra.Menu::class.java)
-                startActivity(intent)
+            val intent = android.content.Intent(this, Menu::class.java)
+            startActivity(intent)
+        }
+        supportFragmentManager.commit {
+            replace<CreditFragment1Logo>(R.id.frame)
+            setReorderingAllowed(true)
+            addToBackStack("replacement")
+        }
+        timer.scheduleAtFixedRate(TimeTask(),0L,3000L)
 
+    }
+    private inner class TimeTask:TimerTask(){
+        private var numeroFragment:Int=1
+        override fun run() {
+            numeroFragment++
+            if (numeroFragment>2){
+                numeroFragment=1
+            }
+
+            if (numeroFragment==1) {
+                supportFragmentManager.commit {
+                    replace<CreditFragment1Logo>(R.id.frame)
+                    setReorderingAllowed(true)
+                    addToBackStack("replacement")
+                }
+            }else{
+                supportFragmentManager.commit {
+                    replace<CreditFragment2Author>(R.id.frame)
+                    setReorderingAllowed(true)
+                    addToBackStack("replacement")
+                }
             }
         }
-
-        supportFragmentManager.beginTransaction().add(id.frame, fragment1).commit()
-        object : CountDownTimer(5000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-            }
-
-            override fun onFinish() {
-                supportFragmentManager.beginTransaction().add(id.frame, fragment2).commit()
-                canGoBack = true
-            }
-        }.start()
     }
 }
