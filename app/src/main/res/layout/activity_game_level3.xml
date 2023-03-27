@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textScore"
-        android:layout_width="120dp"
-        android:layout_height="35dp"
+        android:layout_width="121dp"
+        android:layout_height="37dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="50dp"
         android:text="@string/ScoreLevel1"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="126dp"
         android:layout_marginEnd="128dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/ExitLevel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,13 +64,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="301dp"
-        android:layout_marginBottom="185dp"
+        android:layout_marginBottom="96dp"
         android:background="@drawable/rounded_completely"
         android:contentDescription="Rock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/rock" />
+
+    <ImageButton
+        android:id="@+id/buttonLizard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="301dp"
+        android:layout_marginBottom="200dp"
+        android:background="@drawable/rounded_completely"
+        android:contentDescription="Lizard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/lizard" />
 
     <ImageButton
         android:id="@+id/buttonPaper"
@@ -78,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="167dp"
         android:layout_marginEnd="167dp"
-        android:layout_marginBottom="123dp"
+        android:layout_marginBottom="148dp"
         android:background="@drawable/rounded_completely"
         android:contentDescription="Paper"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,13 +108,29 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="294dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="185dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/rounded_completely"
         android:contentDescription="Scissors"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/scissors" />
+
+    <ImageButton
+        android:id="@+id/buttonSpock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="294dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/rounded_completely"
+        android:contentDescription="Spock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/spock" />
 
     <TextView
         android:id="@+id/scoreLevel1"

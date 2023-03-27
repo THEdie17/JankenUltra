@@ -45,4 +45,5 @@
     <string name="continueBtn">Continue</string>
     <string name="exitBtn">Exit</string>
     <string name="loserMessage">The machine won the game!</string>
+    <string name="EditBtn">Edit</string>
 </resources>

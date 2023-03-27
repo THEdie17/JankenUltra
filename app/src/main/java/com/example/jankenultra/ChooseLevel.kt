@@ -47,7 +47,7 @@ class ChooseLevel : AppCompatActivity() {
         level3 = findViewById(R.id.level3)
         level3.setOnClickListener {
             playSound()
-            val intent = Intent(this, ChooseLevel::class.java)
+            val intent = Intent(this, GameLevel3::class.java)
             startActivity(intent)
         }
 

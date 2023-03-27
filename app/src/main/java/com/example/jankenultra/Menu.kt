@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 
+@Suppress("DEPRECATION")
 class Menu : AppCompatActivity() {
     //creem unes variables per comprovar ususari i authentificació
     private lateinit var closeSession: Button
@@ -21,6 +22,7 @@ class Menu : AppCompatActivity() {
     private lateinit var creditsBtn: Button
     private lateinit var scoresBtn: Button
     private lateinit var playBtn: Button
+    private lateinit var editBtn: Button
     private lateinit var myScore: TextView
     private lateinit var score: TextView
     private lateinit var uid: TextView
@@ -31,6 +33,7 @@ class Menu : AppCompatActivity() {
     private lateinit var soundPool: SoundPool
     private var soundId: Int = 0
 
+
     private var user: FirebaseUser? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +41,10 @@ class Menu : AppCompatActivity() {
 
         val tf = Typeface.createFromAsset(assets, "fonts/edosz.ttf")
         val tf2 = Typeface.createFromAsset(assets, "fonts/retro.ttf")
-
-        uid = findViewById(R.id.uid)
-        emailPlayer = findViewById(R.id.correo)
-        usernamePlayer = findViewById(R.id.nom)
+        editBtn = findViewById(R.id.editOptBtn)
+        uid = findViewById(R.id.passwordShow)
+        emailPlayer = findViewById(R.id.emailShow)
+        usernamePlayer = findViewById(R.id.nameShow)
         myScore = findViewById(R.id.miPuntuaciotxt)
         score = findViewById(R.id.puntuacio)
 
@@ -75,9 +78,9 @@ class Menu : AppCompatActivity() {
         creditsBtn = findViewById(R.id.CreditsBtn)
         scoresBtn = findViewById(R.id.PuntuacionsBtn)
         playBtn = findViewById(R.id.jugarBtn)
-        closeSession = findViewById(R.id.tancarSessio)
+        closeSession = findViewById(R.id.GoBack)
 
-
+        editBtn.typeface = tf
         myScore.typeface = tf
         score.typeface = (tf)
         uid.typeface = (tf2)
@@ -97,14 +100,18 @@ class Menu : AppCompatActivity() {
         }
 
         creditsBtn.setOnClickListener {
-            Toast.makeText(this, "com.example.jankenultra.Credits", Toast.LENGTH_SHORT).show()
             playSound()
             val intent = Intent(this, Credits::class.java)
             startActivity(intent)
         }
 
+        editBtn.setOnClickListener {
+            playSound()
+            val intent = Intent(this, EditProfile::class.java)
+            startActivity(intent)
+        }
+
         playBtn.setOnClickListener {
-            Toast.makeText(this, "PLAY", Toast.LENGTH_SHORT).show()
             playSound()
             val intent = Intent(this, ChooseLevel::class.java)
             startActivity(intent)
@@ -112,10 +119,12 @@ class Menu : AppCompatActivity() {
         scoresBtn.setOnClickListener {
             Toast.makeText(this, "Scores", Toast.LENGTH_SHORT).show()
             playSound()
+            val intent = Intent(this, ScoreList::class.java)
+            startActivity(intent)
         }
 
-
     }
+
 
     private fun playSound() {
         soundPool.play(soundId, 1.0f, 1.0f, 0, 0, 1.0f)
